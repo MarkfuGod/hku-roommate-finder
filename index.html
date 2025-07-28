@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKU CS 室友招募 - 选择页面</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 3em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGradient 4s ease infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes textGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        
+        .page-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .page-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .page-card:hover::before {
+            left: 100%;
+        }
+        
+        .page-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.5);
+        }
+        
+        .page-card.xiaohongshu {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff9ff3 100%);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
+        }
+        
+        .page-card.xiaohongshu:hover {
+            box-shadow: 0 25px 50px rgba(255, 107, 107, 0.5);
+        }
+        
+        .page-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .page-description {
+            font-size: 1em;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .features {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px 0;
+            color: #2c3e50;
+        }
+        
+        .features h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: left;
+        }
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed #ddd;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 2.2em; }
+            .page-options { grid-template-columns: 1fr; }
+            .feature-list { grid-template-columns: 1fr; }
+            .container { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🏠 HKU CS 室友招募 🏠</h1>
+        <p class="subtitle">选择你喜欢的页面风格</p>
+        
+        <div class="page-options">
+            <a href="detailed.html" class="page-card">
+                <span class="page-icon">📋</span>
+                <div class="page-title">详细版本</div>
+                <div class="page-description">
+                    完整的个人信息展示<br>
+                    包含详细的生活习惯、兴趣爱好<br>
+                    适合深入了解
+                </div>
+            </a>
+            
+            <a href="xiaohongshu.html" class="page-card xiaohongshu">
+                <span class="page-icon">🌈</span>
+                <div class="page-title">小红书风格</div>
+                <div class="page-description">
+                    鲜艳动感的视觉效果<br>
+                    适合社交媒体分享<br>
+                    吸引眼球的设计
+                </div>
+            </a>
+        </div>
+        
+        <div class="features">
+            <h3>🎯 关于我</h3>
+            <div class="feature-list">
+                <div class="feature-item">🎂 03男生 | INTP性格</div>
+                <div class="feature-item">🎓 25Fall HKU CS硕士</div>
+                <div class="feature-item">🎮 游戏爱好者 | P社战犯</div>
+                <div class="feature-item">💰 预算≤8000 HKD/月</div>
+                <div class="feature-item">📍 HKU步行20分钟内</div>
+                <div class="feature-item">👥 寻找1-2位男室友</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>📧 联系方式: fang39254@gmail.com</p>
+            <p>📱 小红书: 直接私信</p>
+            <p>🏠 支持线下看房 (珠海-香港)</p>
+        </div>
+    </div>
+</body>
+</html>
